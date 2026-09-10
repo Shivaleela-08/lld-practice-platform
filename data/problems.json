@@ -1,0 +1,89 @@
+[
+  {
+    "id": "parking-lot",
+    "title": "Parking Lot System",
+    "difficulty": "Medium",
+    "summary": "Design a parking lot that supports multiple vehicle types (motorcycle, car, bus), multiple floors, and computes parking fees.",
+    "requirements": [
+      "Support multiple vehicle types with different spot size requirements",
+      "Support multiple floors, each with a limited number of spots per type",
+      "Assign the nearest available suitable spot when a vehicle enters",
+      "Track entry and exit time and compute a parking fee on exit",
+      "Handle the lot being full gracefully"
+    ],
+    "hints": [
+      "Think about whether Spot should know its own type or whether that lives elsewhere",
+      "How would you add a new vehicle type without touching existing spot logic?"
+    ],
+    "tags": ["classic", "strategy-pattern"]
+  },
+  {
+    "id": "elevator-system",
+    "title": "Elevator Control System",
+    "difficulty": "Hard",
+    "summary": "Design the control logic for a bank of elevators in a building, handling internal and external requests efficiently.",
+    "requirements": [
+      "Support multiple elevators serving the same set of floors",
+      "Handle external up/down requests and internal floor requests",
+      "Decide which elevator should service a new request",
+      "Support an elevator going out of service",
+      "Avoid starving requests at floors far from current elevator positions"
+    ],
+    "hints": [
+      "Separate 'scheduling which elevator responds' from 'how one elevator moves'",
+      "Consider representing elevator state explicitly (idle/moving up/moving down/door open)"
+    ],
+    "tags": ["classic", "state-machine"]
+  },
+  {
+    "id": "vending-machine",
+    "title": "Vending Machine",
+    "difficulty": "Easy",
+    "summary": "Design a vending machine that accepts coins/notes, lets a user select an item, dispenses it, and returns change.",
+    "requirements": [
+      "Track inventory and price per item slot",
+      "Accept incremental payment and track balance",
+      "Reject selection if item is out of stock or payment is insufficient",
+      "Dispense the item and correct change",
+      "Support restocking and refunding on cancel"
+    ],
+    "hints": [
+      "This is a good problem for practicing an explicit state machine (Idle/HasMoney/Dispensing)"
+    ],
+    "tags": ["classic", "state-machine"]
+  },
+  {
+    "id": "rate-limiter",
+    "title": "API Rate Limiter",
+    "difficulty": "Medium",
+    "summary": "Design an in-process rate limiter that can be attached to an API to limit requests per client per time window.",
+    "requirements": [
+      "Support a configurable limit per client within a time window",
+      "Support at least two different limiting algorithms (e.g. fixed window and sliding window)",
+      "Allow switching the algorithm without changing calling code",
+      "Be safe under concurrent access from multiple threads/requests",
+      "Expose whether a given request should be allowed or rejected"
+    ],
+    "hints": [
+      "This is a strong candidate for a Strategy interface with swappable algorithm implementations"
+    ],
+    "tags": ["systems", "strategy-pattern", "concurrency"]
+  },
+  {
+    "id": "library-management",
+    "title": "Library Management System",
+    "difficulty": "Easy",
+    "summary": "Design a system to manage books, members, and borrowing/returning with due dates and fines.",
+    "requirements": [
+      "Track book copies and their availability",
+      "Let a member borrow a book if a copy is available and they have no unpaid fines",
+      "Compute a fine when a book is returned late",
+      "Support reserving a book that is currently unavailable",
+      "Support multiple copies of the same title"
+    ],
+    "hints": [
+      "Think about the difference between a Book (the title) and a BookCopy (a physical item)"
+    ],
+    "tags": ["classic"]
+  }
+]
